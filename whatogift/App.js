@@ -1,21 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { TabsNavigator } from './src/navigation';
-import Style from './src/utilis/AppStyle';
+import { TabsNavigator, AccountStack } from './src/navigation';
+
+
 export default function App() {
+
+  const [isLogin, setIsLogin] = useState(false);
+
   return (
     <NavigationContainer>
-      <TabsNavigator />
+      {
+        isLogin ? (<TabsNavigator />) : (<AccountStack />)
+      }
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

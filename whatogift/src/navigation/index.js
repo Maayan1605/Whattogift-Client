@@ -11,6 +11,21 @@ import Gifts from "../screens/gifts";
 import Favorites from "../screens/favorites";
 import Profile from "../screens/profile";
 
+import Login from "../screens/account/Login";
+import Signup from "../screens/account/Signup";
+import Verify from "../screens/account/Verify";
+//create stack
+const AccountStackNavigator = createNativeStackNavigator();
+export const AccountStack = () => {
+    return (
+        <AccountStackNavigator.Navigator>
+            <AccountStackNavigator.Screen name='login' component={Login} />
+            <AccountStackNavigator.Screen name='signup' component={Signup} />
+            <AccountStackNavigator.Screen name='verify' component={Verify} />
+        </AccountStackNavigator.Navigator>
+    );
+}
+
 //create tabs:
 const AppTab = createMaterialBottomTabNavigator();
 export const TabsNavigator = () => {
@@ -21,17 +36,17 @@ export const TabsNavigator = () => {
                     tabBarLabel: 'Dashboard', 
                     tabBarIcon: () => (<MaterialCommunityIcons name='view-grid' size={22}/>) 
                 }}/>
-            <AppTab.Screen name='gifts' component={Gifts} 
+            <AppTab.Screen name='giftsTab' component={Gifts} 
                 options={{ 
                     tabBarLabel: 'Gifts', 
                     tabBarIcon: () => (<MaterialCommunityIcons name='gift' size={22}/>) 
                 }}/>
-            <AppTab.Screen name='favorites' component={Favorites} 
+            <AppTab.Screen name='favoritesTab' component={Favorites} 
                 options={{ 
                     tabBarLabel: 'Favorites', 
                     tabBarIcon: () => (<MaterialCommunityIcons name='heart' size={22}/>) 
                 }}/>
-            <AppTab.Screen name='profile' component={Profile} 
+            <AppTab.Screen name='profileTab' component={Profile} 
                 options={{ 
                     tabBarLabel: 'Profile', 
                     tabBarIcon: () => (<MaterialCommunityIcons name='baby-face' size={22}/>) 
